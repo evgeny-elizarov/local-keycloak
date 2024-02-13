@@ -30,8 +30,8 @@ At startup, Keycloak automatically imports the prepared DNA realm from here `./r
 
 There are already 2 clients pre-installed in DNA realm, for the frontend and for the backend
 https://localhost:8443/admin/master/console/#/dna/clients
-- `local-module-fronted`
-- `local-module-service`
+- `local-module-fronted` Used for to authenticate user account vua username and password
+- `local-module-service` User for authenticate backend service via client secret `Lov2Koc3X17wHx6L1c16OuLY5EVsjnqY`
 
 ### Add user account
 To create first user account in predefined `DNA` realm you should:
