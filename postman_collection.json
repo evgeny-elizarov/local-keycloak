@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "f3aac7b5-6b56-463c-9dea-4d8c9442127e",
+		"name": "Local Module Keycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10252328",
+		"_collection_link": "https://warped-desert-66770.postman.co/workspace/Digital-Evidence~0b67b6ec-734b-4742-974b-162be0c7e288/collection/10252328-f3aac7b5-6b56-463c-9dea-4d8c9442127e?action=share&source=collection_link&creator=10252328"
+	},
+	"item": [
+		{
+			"name": "Local module frontend: Get access token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var accessToken = pm.response.json().access_token;\r",
+							"console.log(\"Extracted AccessToken: \" + accessToken);\r",
+							"pm.collectionVariables.set(\"accessToken\", accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"disabledSystemHeaders": {},
+				"tlsDisabledProtocols": []
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "local-module-frontend",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "f7F7DyLwshpgds3ek=T*bsNpju88G4zQXdotaYAuhN",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "test@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{iam-url}}/realms/dna/protocol/openid-connect/token",
+					"host": [
+						"{{iam-url}}"
+					],
+					"path": [
+						"realms",
+						"dna",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Local module service: Get access token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var accessToken = pm.response.json().access_token;\r",
+							"console.log(\"Extracted AccessToken: \" + accessToken);\r",
+							"pm.collectionVariables.set(\"accessToken\", accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"disabledSystemHeaders": {},
+				"tlsDisabledProtocols": []
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "local-module-service",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "Lov2Koc3X17wHx6L1c16OuLY5EVsjnqY",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "test@example.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{iam-url}}/realms/dna/protocol/openid-connect/token",
+					"host": [
+						"{{iam-url}}"
+					],
+					"path": [
+						"realms",
+						"dna",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "iam-url",
+			"value": "https://localhost:8443",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
